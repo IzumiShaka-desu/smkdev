@@ -1,4 +1,4 @@
-package com.DarkshanDev.smkdev
+package initdev.DarkshanDev.smkdev
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -151,7 +151,9 @@ class _PageContainerState extends State<PageContainer>
               mainAxisSize: MainAxisSize.min,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    _tabController.animateTo(4);
+                  },
                   child: Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
@@ -177,7 +179,9 @@ class _PageContainerState extends State<PageContainer>
                 ),
                 SizedBox(height: 10),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    _tabController.animateTo(5);
+                  },
                   child: Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
