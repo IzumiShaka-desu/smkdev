@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smkdev/constant/color_pallete.dart';
+import 'package:smkdev/dummies/dummies.dart';
+import 'package:smkdev/model/event.dart';
+import 'package:smkdev/model/facility.dart';
+import 'package:smkdev/screens/detail_event.dart';
+import 'package:smkdev/screens/detail_service.dart';
 
 class Services extends StatelessWidget {
   @override
@@ -54,17 +59,27 @@ class Services extends StatelessWidget {
                   aspectRatio: 1 / 0.7,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: [1, 2, 3, 4, 5]
+                    children: facilities
                         .map(
-                          (e) => AspectRatio(
+                          (Facility e) => AspectRatio(
                             aspectRatio: 2 / 2.5,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: ColorPallete.mainGrey,
-                              )),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (ctx) =>
+                                          DetailService(facility: e),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: ColorPallete.mainGrey,
+                                )),
+                              ),
                             ),
                           ),
                         )
@@ -82,75 +97,87 @@ class Services extends StatelessWidget {
                 ),
                 Container(
                   child: Column(
-                    children: [1, 2, 3, 4, 5]
+                    children: events
                         .map(
-                          (e) => AspectRatio(
+                          (Event e) => AspectRatio(
                             aspectRatio: 3 / 2,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (ctx) => DetailEvent(
+                                        event: e,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: ColorPallete.mainGrey,
+                                      style: BorderStyle.none,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
                                     color: ColorPallete.mainGrey,
-                                    style: BorderStyle.none,
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: ColorPallete.mainGrey,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    AspectRatio(
-                                      aspectRatio: 4 / 1.3,
-                                      child: Container(
-                                        padding: EdgeInsets.all(10),
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text('Event',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1
-                                                        .copyWith(
-                                                            color: ColorPallete
-                                                                .mainBlue)),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    "Cara Membuat Sabun Herbal Sendiri, Bisa Pilih Aroma da..",
-                                                    style: TextStyle(
-                                                      fontSize: 11,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: ColorPallete
-                                                          .textBlack,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      AspectRatio(
+                                        aspectRatio: 4 / 1.3,
+                                        child: Container(
+                                          padding: EdgeInsets.all(10),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text('Event',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1
+                                                          .copyWith(
+                                                              color: ColorPallete
+                                                                  .mainBlue)),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      "Cara Membuat Sabun Herbal Sendiri, Bisa Pilih Aroma da..",
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: ColorPallete
+                                                            .textBlack,
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "23 Sep 2020",
-                                                  style: TextStyle(
-                                                      fontSize: 10,
-                                                      color: ColorPallete
-                                                          .textGrey),
-                                                )
-                                              ],
-                                            )
-                                          ],
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "23 Sep 2020",
+                                                    style: TextStyle(
+                                                        fontSize: 10,
+                                                        color: ColorPallete
+                                                            .textGrey),
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          color: ColorPallete.mainWhite,
                                         ),
-                                        color: ColorPallete.mainWhite,
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
