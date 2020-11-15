@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:smkdev/constant/consts.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class FeedBacks extends StatefulWidget {
@@ -31,7 +32,7 @@ class _FeedbackState extends State<FeedBacks> {
       ),
       body: Container(
         child: WebView(
-          initialUrl: 'https://flutter.dev',
+          initialUrl: feedbackUrl,
         ),
       ),
     );
